@@ -1,0 +1,6 @@
+{
+  "title": "SSH Relay",
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
