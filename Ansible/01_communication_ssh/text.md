@@ -3,6 +3,7 @@ Utiliser l'utilitaire python pip pour installer ansible et on vérifie sa prése
 Actions à réaliser :
 - créer une clé ssh
 - copier la clés sur les hôtes distants
+- tester la connexion
 
 <br>
 
@@ -17,9 +18,7 @@ ssh-keygen
 ```{{exec}}
 
 ```plain
-ssh-copy-id ubuntu@host1
-ssh-copy-id ubuntu@host2
-ssh-copy-id ubuntu@host3
+ssh-copy-id ubuntu@node01
 ```{{exec}}
 
 </details>
