@@ -1,0 +1,22 @@
+{
+  "title": "Communication ssh",
+  "description": "Communication ssh pour Ansible",
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  },
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Faire communiquer ansible",
+        "text": "text.md",
+        "verify": "verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  }
+}
