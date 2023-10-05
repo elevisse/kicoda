@@ -21,4 +21,8 @@ ssh-keygen
 ssh-copy-id ubuntu@node01
 ```{{exec}}
 
+```plain
+ssh ubuntu@node01
+```{{exec}}
+
 </details>
