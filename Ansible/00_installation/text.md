@@ -6,8 +6,6 @@ Actions à réaliser :
 
 <br>
 
-### Solution
-
 <details>
 
 <summary>Solution</summary>
