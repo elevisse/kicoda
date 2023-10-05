@@ -4,11 +4,19 @@
   "backend": {
     "imageid": "ubuntu"
   },
-  "steps": [
-    {
-      "title": "Installer ansible",
-      "text": "text.md",
-      "verify": "verify.sh"
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Installer ansible",
+        "text": "text.md",
+        "verify": "verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
     }
-  ]
+  }
 }
