@@ -1,0 +1,6 @@
+{
+    "items": [
+      { "path": "ssh-relay", "title": "For ssh connections in TLS environment by ITS Services UNIMATE" },
+      { "path": "Ansible", "title": "Ansible course by ITS Services UNIMATE" }
+    ]
+}

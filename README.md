@@ -1,2 +1,2 @@
 # kicoda
-Killer coda labs for ITS Academy
+Killer coda labs for ITS Academy by UNIMATE
