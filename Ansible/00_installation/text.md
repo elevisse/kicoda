@@ -7,6 +7,11 @@ Actions à réaliser :
 <br>
 
 ### Solution
+
+<details>
+
+<summary>Solution</summary>
+
 Utiliser les commandes suivantes afin d'installer et vérifier la présence d'Ansible
 
 ```plain
@@ -16,3 +21,5 @@ pip install ansible
 ```plain
 ansible --version
 ```{{exec}}
+
+</details>
