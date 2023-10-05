@@ -6,7 +6,7 @@
   },
   "steps": [
     {
-      "Title": "Installer ansible",
+      "title": "Installer ansible",
       "text": "text.md",
       "verify": "verify.sh"
     }
