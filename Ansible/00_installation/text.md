@@ -1,4 +1,8 @@
-Utiliser l'utilitaire python pip pour installer ansible.
+Utiliser l'utilitaire python pip pour installer ansible et on vérifie sa présence.
+
+Actions à réaliser :
+- installer ansible via pip
+- vérifier la version d'Ansible
 
 <br>
 
