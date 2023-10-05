@@ -1,3 +1,4 @@
 #!/bin/bash
 
-ansible --version
+ansible --version > check.txt
+stat check.txt
