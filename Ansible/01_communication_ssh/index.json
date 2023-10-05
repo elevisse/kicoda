@@ -17,6 +17,17 @@
     ],
     "finish": {
       "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {"file": "test.txt", "target": "/root", "chmod": "+w"}
+      ],
+      "host02": [
+        {"file": "test.txt", "target": "/root", "chmod": "+w"}
+      ],
+      "host03": [
+        {"file": "test.txt", "target": "/root", "chmod": "+w"}
+      ]
     }
   }
 }
