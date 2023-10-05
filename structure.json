@@ -1,6 +1,6 @@
 {
     "items": [
-      { "path": "ssh-relay", "title": "For ssh connections in TLS environment by ITS Services UNIMATE" },
-      { "path": "Ansible", "title": "Ansible course by ITS Services UNIMATE" }
+      { "path": "ssh-relay", "title": "Pour les connexions SSH dans un environnement TLS, par ITS Services UNIMATE" },
+      { "path": "Ansible", "title": "Cours Ansible par ITS Services UNIMATE" }
     ]
 }

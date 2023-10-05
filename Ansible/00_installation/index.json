@@ -1,6 +1,6 @@
 {
     "title": "Installation",
-    "description": "Ansible installation",
+    "description": "Installation Ansible",
     "backend": {
       "imageid": "ubuntu"
     }
