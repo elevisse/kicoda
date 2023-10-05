@@ -1,7 +1,14 @@
 {
-    "title": "Installation",
-    "description": "Installation Ansible",
-    "backend": {
-      "imageid": "ubuntu"
+  "title": "Installation",
+  "description": "Installation Ansible",
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "steps": [
+    {
+      "Title": "Installer ansible",
+      "text": "text.md",
+      "verify": "verify.sh"
     }
+  ]
 }
