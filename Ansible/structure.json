@@ -1,7 +1,7 @@
 {
   "title": "Ansible",
-  "description": "Ansible course by ITS Services UNIMATE",
+  "description": "Cours Ansible par ITS Services UNIMATE",
   "items": [
-    { "path": "00_installation", "title": "To learn and verify how to install ansible" }
+    { "path": "00_installation", "title": "Apprendre comment installer ansible" }
   ]
 }
