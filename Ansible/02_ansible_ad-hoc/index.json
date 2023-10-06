@@ -16,7 +16,7 @@
     ],
     "assets": {
       "host01": [
-        {"file": "docker-compose.yml", "target": "/home/ubuntu", "chmod": "+x"}
+        {"file": "docker-compose.yml", "target": "/root", "chmod": "+x"}
       ]
     }
   }
