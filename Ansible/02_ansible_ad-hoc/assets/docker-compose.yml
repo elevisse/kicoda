@@ -16,8 +16,6 @@ services:
       sshnet:
         ipv4_address: 10.1.1.1
     restart: always
-    volumes:
-      - ~/.ssh/id_rsa:/root/.ssh/id_rsa
   node02:
     environment:
       - ROOT_PASSWORD=ubuntu
@@ -26,8 +24,6 @@ services:
       sshnet:
         ipv4_address: 10.1.1.2
     restart: always
-    volumes:
-      - ~/.ssh/id_rsa:/root/.ssh/id_rsa
   node03:
     environment:
       - ROOT_PASSWORD=ubuntu
@@ -36,5 +32,3 @@ services:
       sshnet:
         ipv4_address: 10.1.1.3
     restart: always
-    volumes:
-      - ~/.ssh/id_rsa:/root/.ssh/id_rsa

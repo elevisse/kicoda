@@ -6,7 +6,7 @@
   },
   "details": {
     "intro": {
-      "background": "init/init_cntrs.sh",
+      "foreground": "init/init_cntrs.sh",
       "text": "intro.md"
     },
     "steps": [
