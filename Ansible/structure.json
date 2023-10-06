@@ -4,6 +4,7 @@
   "items": [
     { "path": "00_installation", "title": "Apprendre comment installer ansible" },
     { "path": "01_communication_ssh", "title": "Apprendre à faire communiquer Ansible" },
-    { "path": "02_ansible_ad-hoc", "title": "Apprendre à tester les commandes Ansible ad-hoc" }
+    { "path": "02_ansible_ad-hoc", "title": "Apprendre à tester les commandes Ansible ad-hoc" },
+    { "path": "03_ansible_inventory", "title": "Apprendre à gérer et construire les inventaires" }
   ]
 }

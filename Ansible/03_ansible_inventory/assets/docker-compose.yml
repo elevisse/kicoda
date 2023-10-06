@@ -1,0 +1,34 @@
+version: "3"
+
+networks:
+  sshnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.1.0.0/16
+
+services:
+  node01:
+    environment:
+      - ROOT_PASSWORD=ubuntu
+    image: takeyamajp/ubuntu-sshd
+    networks:
+      sshnet:
+        ipv4_address: 10.1.1.1
+    restart: always
+  node02:
+    environment:
+      - ROOT_PASSWORD=ubuntu
+    image: takeyamajp/ubuntu-sshd
+    networks:
+      sshnet:
+        ipv4_address: 10.1.1.2
+    restart: always
+  node03:
+    environment:
+      - ROOT_PASSWORD=ubuntu
+    image: takeyamajp/ubuntu-sshd
+    networks:
+      sshnet:
+        ipv4_address: 10.1.1.3
+    restart: always

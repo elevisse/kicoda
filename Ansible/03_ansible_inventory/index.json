@@ -1,0 +1,25 @@
+{
+  "title": "Ad-hoc",
+  "description": "Ansible : commandes ad-hoc",
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "details": {
+    "intro": {
+      "foreground": "init/init_cntrs.sh",
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Tester l'inventaire",
+        "text": "text.md"
+      }
+    ],
+    "assets": {
+      "host01": [
+        {"file": "docker-compose.yml", "target": "/root", "chmod": "+x"},
+        {"file": "init_cntrs.sh", "target": "/root", "chmod": "+x"}
+      ]
+    }
+  }
+}
