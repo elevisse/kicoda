@@ -2,15 +2,21 @@ version: "3"
 
 services:
   node01:
+    command: ["sleep","infinity"]
     image: ubuntu
     networks:
       ssh_net:
-        ipv4_adress: 172.30.2.2
+    ports:
+    - 22:22
+    restart: always
   node02:
+    command: ["sleep","infinity"]
     image: ubuntu
     networks:
       ssh_net:
-        ipv4_adress: 172.30.3.2
+    ports:
+    - 22:22
+    restart: always
 
 networks:
   ssh_net:
