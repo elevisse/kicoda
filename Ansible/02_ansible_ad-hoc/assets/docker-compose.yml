@@ -9,32 +9,32 @@ networks:
 
 services:
   node01:
-    command: "/root/init_cntrs.sh"
-    image: ubuntu
+    environment:
+      - ROOT_PASSWORD=ubuntu
+    image: takeyamajp/ubuntu-sshd
     networks:
       sshnet:
         ipv4_address: 10.1.1.1
     restart: always
     volumes:
       - ~/.ssh/id_rsa:/root/.ssh/id_rsa
-      - ~/init_cntrs.sh:/root/init_cntrs.sh
   node02:
-    command: "/root/init_cntrs.sh"
-    image: ubuntu
+    environment:
+      - ROOT_PASSWORD=ubuntu
+    image: takeyamajp/ubuntu-sshd
     networks:
       sshnet:
         ipv4_address: 10.1.1.2
     restart: always
     volumes:
       - ~/.ssh/id_rsa:/root/.ssh/id_rsa
-      - ~/init_cntrs.sh:/root/init_cntrs.sh
   node03:
-    command: "/root/init_cntrs.sh"
-    image: ubuntu
+    environment:
+      - ROOT_PASSWORD=ubuntu
+    image: takeyamajp/ubuntu-sshd
     networks:
       sshnet:
         ipv4_address: 10.1.1.3
     restart: always
     volumes:
       - ~/.ssh/id_rsa:/root/.ssh/id_rsa
-      - ~/init_cntrs.sh:/root/init_cntrs.sh
