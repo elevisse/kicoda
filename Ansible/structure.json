@@ -3,6 +3,7 @@
   "description": "Cours Ansible par ITS Services UNIMATE",
   "items": [
     { "path": "00_installation", "title": "Apprendre comment installer ansible" },
-    { "path": "01_communication_ssh", "title": "Apprendre à faire communiquer Ansible" }
+    { "path": "01_communication_ssh", "title": "Apprendre à faire communiquer Ansible" },
+    { "path": "02_ansible_ad-hoc", "title": "Ansible : commandes ad-hoc" }
   ]
 }

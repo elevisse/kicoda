@@ -1,1 +1,1 @@
-Ici, on communique avec des machines ad-hoc
+Ici, on communique avec des machines avec ansible de façon ad-hoc
