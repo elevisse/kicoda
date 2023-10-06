@@ -2,7 +2,7 @@ Utiliser l'utilitaire python pip pour installer ansible et on vérifie sa prése
 
 Actions à réaliser :
 - créer une clé ssh
-- copier la clés sur les hôtes distants
+- copier la clés sur l'hôte distant node01
 - tester la connexion
 
 <br>
