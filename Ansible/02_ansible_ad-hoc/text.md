@@ -1,7 +1,8 @@
 Utiliser l'utilitaire ansible pour les commandes ad-hoc
 
 Actions à réaliser :
-- ansible ping pour les machines node01 et node02
+- lister l'inventaire existant
+- ansible ping pour toutes les machines
 - commande ad-hoc de shell pour afficher l'heure
 
 <br>
@@ -10,14 +11,24 @@ Actions à réaliser :
 
 <summary>Solution</summary>
 
-Utiliser les commandes suivantes afin d'installer et vérifier la présence d'Ansible
-
+Cette commande sert à lister l'inventaire
 ```plain
-pip install ansible
+ansible all --list-hosts
 ```{{exec}}
 
+Ces commandes permettent de tesr la connexion sur les différents noeuds
 ```plain
-ansible --version
+ansible all -m ping
+```{{exec}}
+```plain
+ansible all -m ansible.builtin.ping
 ```{{exec}}
 
+Cette commande affichera l'heure
+```plain
+ansible all -m shell -a "date"
+```{{exec}}
+```plain
+ansible all -m ansible.builtin.shell -a "date"
+```{{exec}}
 </details>
