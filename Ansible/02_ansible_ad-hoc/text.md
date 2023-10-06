@@ -32,3 +32,11 @@ ansible all -m shell -a "date"
 ansible all -m ansible.builtin.shell -a "date"
 ```{{exec}}
 </details>
+
+Bonus : tester les résultats de ces commandes :
+```plain
+ansible all[0:1] -m ping
+```{{exec}}
+```plain
+ansible all[1:] -m ansible.builtin.ping
+```{{exec}}
