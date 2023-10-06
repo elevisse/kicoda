@@ -11,8 +11,12 @@
     },
     "steps": [
       {
-        "title": "Tester l'inventaire",
-        "text": "text.md"
+        "title": "Tester l'inventaire basique",
+        "text": "text_1.md"
+      },
+      {
+        "title": "Tester l'inventaire yaml",
+        "text": "text_2.md"
       }
     ],
     "assets": {
