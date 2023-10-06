@@ -1,6 +1,6 @@
 {
   "title": "Ad-hoc",
-  "description": "Ansible : commandes ad-hoc",
+  "description": "Ansible : inventaires simples",
   "backend": {
     "imageid": "ubuntu"
   },
