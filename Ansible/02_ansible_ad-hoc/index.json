@@ -1,0 +1,23 @@
+{
+  "title": "Ad-hoc",
+  "description": "Ansible : commandes ad-hoc",
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Tester les commandes ad-hoc",
+        "text": "text.md"
+      }
+    ],
+    "assets": {
+      "host01": [
+        {"file": "docker-compose.yml", "target": "/home/ubuntu", "chmod": "+x"}
+      ]
+    }
+  }
+}
