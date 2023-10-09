@@ -14,7 +14,7 @@ Créer le playbook back.yml
 touch playbook/back.yml
 ```{{exec}}
 
-Utiliser l'éditeur pour créer le playbook qui permet de gérer le frontal
+Utiliser l'éditeur pour créer le playbook qui permet de gérer le back
 ```plain
 ---
 
