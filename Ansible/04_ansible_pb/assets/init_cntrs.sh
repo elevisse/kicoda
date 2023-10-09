@@ -9,7 +9,7 @@ echo "node01" >> /etc/ansible/hosts
 echo "node02" >> /etc/ansible/hosts
 echo '[middle]' > /etc/ansible/hosts
 echo "node03" >> /etc/ansible/hosts
-echo '[back]' > /etc/ansible/hosts
+echo '[back]' >> /etc/ansible/hosts
 echo "node04" >> /etc/ansible/hosts
 
 docker-compose -f /root/docker-compose.yml up -d
