@@ -25,6 +25,10 @@
       {
         "title": "Créer et tester un playbook applicatif back",
         "text": "text_04.md"
+      },
+      {
+        "title": "Fusionner les playbooks",
+        "text": "text_05.md"
       }
     ],
     "assets": {
