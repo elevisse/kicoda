@@ -1,8 +1,8 @@
 Utiliser les playbooks ansible
 
 Actions à réaliser :
-- créer un playbook d'installation apache et nodeJS qui s'applique uniquement aux machines "frontal"
-- gérer le cas d'une machine type RedHat ou Debian
+- fusioner les playbooks
+- utiliser [import_playbook_module](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/import_playbook_module.html)
 
 <br>
 
@@ -10,44 +10,35 @@ Actions à réaliser :
 
 <summary>Solution</summary>
 
-Créer le playbook front.yml
+Créer le playbook main.yml
 ```plain
-touch playbook/front.yml
+touch playbook/main.yml
 ```{{exec}}
 
-Utiliser l'éditeur pour créer le playbook qui permet de gérer le frontal
+Utiliser l'éditeur pour créer le playbook qui permet d'appeler tous les autres'
 ```plain
 ---
 
-# Ce playbook mets a jour les paquets systemes et cree un utilisateur applicatif app
-- name: Apache et nodeJS
-  hosts: frontal
-  tasks:
-  - name: Apache on debian-like
-    ansible.builtin.package:
-      name: "apache"
-      state: latest
-    when: ansible_facts['os_family'] == "Debian"
-  - name: Apache on RedHat-like
-    ansible.builtin.package:
-      name: "httpd"
-      state: latest
-    when: ansible_facts['os_family'] == "RedHat"
-  - name: nodeJS
-    ansible.builtin.package:
-      name: "nodejs"
-      state: latest
+# Ce playbook joue toute l'application
+- name: system
+  ansible.builtin.import_playbook: sys.yml
+- name: back
+  ansible.builtin.import_playbook: back.yml
+- name: middle
+  ansible.builtin.import_playbook: middle.yml
+- name: front
+  ansible.builtin.import_playbook: front.yml
 
 ```
 
 Cette commande jouera le playbook
 ```plain
-ansible-playbook playbook/sys.yml
+ansible-playbook playbook/main.yml
 ```{{exec}}
 
 Rejouer le playbook pour constater l'idempotence
 ```
-ansible-playbook playbook/sys.yml
+ansible-playbook playbook/main.yml
 ```
 
 </details>

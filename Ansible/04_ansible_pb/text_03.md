@@ -27,7 +27,9 @@ Utiliser l'éditeur pour créer le playbook qui permet de gérer le middle
   tasks:
   - name: installer jdk
     ansible.builtin.package:
-      name: openjdk-11-jdk
+      name:
+      - openjdk-11-jdk
+      - sudo
       state: latest
   - name: ajouter groupe tomcat
     ansible.builtin.group:
@@ -69,6 +71,8 @@ Utiliser l'éditeur pour créer le playbook qui permet de gérer le middle
         enabled: true
         state: restarted
         force: true
+      become: yes
+      ignore_errors: yes
 
 ```
 
