@@ -1,0 +1,37 @@
+{
+  "title": "Ansible : playbook",
+  "description": "Ansible : création d'un premier playbook",
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "details": {
+    "intro": {
+      "foreground": "init/init_cntrs.sh",
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Créer et tester un playbook système",
+        "text": "text_01.md"
+      },
+      {
+        "title": "Créer et tester un playbook applicatif frontal",
+        "text": "text_02.md"
+      },
+      {
+        "title": "Créer et tester un playbook applicatif middle",
+        "text": "text_03.md"
+      },
+      {
+        "title": "Créer et tester un playbook applicatif back",
+        "text": "text_04.md"
+      }
+    ],
+    "assets": {
+      "host01": [
+        {"file": "docker-compose.yml", "target": "/root", "chmod": "+x"},
+        {"file": "init_cntrs.sh", "target": "/root", "chmod": "+x"}
+      ]
+    }
+  }
+}
