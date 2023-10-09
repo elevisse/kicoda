@@ -30,9 +30,14 @@ Utiliser l'éditeur pour créer le playbook qui permet de gérer le système
     ansible.builtin.package:
       name: "*"
       state: latest
+  - name: ajouter groupe app
+    ansible.builtin.group:
+      name: app
+      state: present
   - name: user app
     ansible.builtin.user:
       name: app
+      groups: app
       shell: /bin/bash
       append: yes
 

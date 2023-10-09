@@ -1,7 +1,8 @@
 Utiliser les playbooks ansible
 
 Actions à réaliser :
-- créer un playbook d'installation apache et nodeJS qui s'applique uniquement aux machines "frontal"
+- créer un playbook d'installation tomcat qui s'applique uniquement aux machines "middle"
+- se baser sur ce tuto : [https://www.linuxtechi.com/how-to-install-apache-tomcat-on-debian/](https://www.linuxtechi.com/how-to-install-apache-tomcat-on-debian/) jusqu'au point 6, plus si souhaité
 - gérer le cas d'une machine type RedHat ou Debian
 
 <br>
@@ -10,33 +11,98 @@ Actions à réaliser :
 
 <summary>Solution</summary>
 
-Créer le playbook front.yml
+Créer le playbook middle.yml
 ```plain
-touch playbook/front.yml
+touch playbook/middle.yml
 ```{{exec}}
 
-Utiliser l'éditeur pour créer le playbook qui permet de gérer le frontal
+Utiliser l'éditeur pour créer le playbook qui permet de gérer le middle
 ```plain
 ---
 
-# Ce playbook mets a jour les paquets systemes et cree un utilisateur applicatif app
-- name: Apache et nodeJS
-  hosts: frontal
+# Ce playbook cree le user et le middle tomcat
+- name: tomcat
+  hosts: middle
   tasks:
-  - name: Apache on debian-like
+  - name: installer jdk
     ansible.builtin.package:
-      name: "apache"
+      name: openjdk-11-jdk
       state: latest
-    when: ansible_facts['os_family'] == "Debian"
-  - name: Apache on RedHat-like
-    ansible.builtin.package:
-      name: "httpd"
-      state: latest
-    when: ansible_facts['os_family'] == "RedHat"
-  - name: nodeJS
-    ansible.builtin.package:
-      name: "nodejs"
-      state: latest
+  - name: ajouter groupe tomcat
+    ansible.builtin.group:
+      name: tomcat
+      state: present
+  - name: ajouter user tomcat
+    ansible.builtin.user:
+      name: tomcat
+      home: /opt/tomcat
+      shell: /bin/false
+      groups: tomcat
+  - name: Decompression sources tomcat
+    ansible.builtin.unarchive:
+      src: "https://downloads.apache.org/tomcat/tomcat-10/v10.0.18/bin/apache-tomcat-10.0.18.tar.gz"
+      dest: "/opt/tomcat"
+      remote_src: true
+      extra_opts: [--strip-components=1]
+  - name: Trouver les fichiers sh
+    ansible.builtin.find:
+      paths: /opt/tomcat/bin
+      patterns: '*.sh'
+    register: sh_files
+  - name: Passer les sh executables
+    ansible.builtin.file:
+      path: "{{ item.path }}"
+      state: file
+      mode: "0755"
+    with_items: sh_files.files
+  - name: inserer le fichier demon
+    ansible.builtin.copy:
+      src: "files/tomcat.service"
+      dest: "/etc/systemd/system/tomcat.service"
+      mode: "0755"
+    notify: "start tomcat"
+  handlers:
+    - name: start tomcat
+      ansible.builtin.systemd:
+        name: tomcat
+        daemon_reload: true
+        enabled: true
+        state: restarted
+        force: true
+
+```
+
+Créer un dossier de fichiers pour le playbook
+```plain
+mkdir -p playbook/files
+```{{exec}}
+
+Créer le fichier démon
+```plain
+touch playbook/files/tomcat.service
+```{{exec}}
+
+Utiliser l'éditeur pour y insérer ce contenu
+```plain
+[Unit]
+Description=Tomcat webs servlet container
+After=network.target
+[Service]
+Type=forking
+User=tomcat
+Group=tomcat
+RestartSec=10
+Restart=always
+Environment="JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64"
+Environment="JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom"
+Environment="CATALINA_BASE=/opt/tomcat"
+Environment="CATALINA_HOME=/opt/tomcat"
+Environment="CATALINA_PID=/opt/tomcat/temp/tomcat.pid"
+Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/opt/tomcat/bin/shutdown.sh
+[Install]
+WantedBy=multi-user.target
 
 ```
 
