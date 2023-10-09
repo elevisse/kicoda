@@ -72,12 +72,12 @@ Utiliser l'éditeur pour créer le playbook qui permet de gérer le frontal
 
 Cette commande jouera le playbook
 ```plain
-ansible-playbook playbook/sys.yml
+ansible-playbook playbook/front.yml
 ```{{exec}}
 
 Rejouer le playbook pour constater l'idempotence
 ```
-ansible-playbook playbook/sys.yml
+ansible-playbook playbook/front.yml
 ```
 
 </details>
