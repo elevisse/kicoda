@@ -40,15 +40,15 @@ Utiliser l'éditeur pour créer le playbook qui permet de gérer le middle
       groups: tomcat
   - name: Decompression sources tomcat
     ansible.builtin.unarchive:
-      src: "https://downloads.apache.org/tomcat/tomcat-10/v10.0.18/bin/apache-tomcat-10.0.18.tar.gz"
-      dest: "/opt/tomcat"
+      src: "https://downloads.apache.org/tomcat/tomcat-10/v10.1.13/bin/apache-tomcat-10.1.13.tar.gz"
+      dest: "/opt/tomcat/"
       remote_src: true
       extra_opts: [--strip-components=1]
   - name: Trouver les fichiers sh
     ansible.builtin.find:
-      paths: /opt/tomcat/bin
+      path: /opt/tomcat/bin
       patterns: '*.sh'
-    register: sh_files
+      register: sh_files
   - name: Passer les sh executables
     ansible.builtin.file:
       path: "{{ item.path }}"
