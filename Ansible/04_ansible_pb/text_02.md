@@ -15,7 +15,7 @@ Créer le playbook front.yml
 touch playbook/front.yml
 ```{{exec}}
 
-Utiliser l'éditeur pour créer le playbook qui permet de gérer le système
+Utiliser l'éditeur pour créer le playbook qui permet de gérer le frontal
 ```plain
 ---
 
@@ -47,7 +47,7 @@ ansible-playbook playbook/sys.yml
 
 Rejouer le playbook pour constater l'idempotence
 ```
-ansible-galaxy collection install community.general
+ansible-playbook playbook/sys.yml
 ```
 
 </details>
