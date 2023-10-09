@@ -4,6 +4,7 @@ Actions à réaliser :
 - créer un playbook d'installation tomcat qui s'applique uniquement aux machines "middle"
 - se baser sur ce tuto : [https://www.linuxtechi.com/how-to-install-apache-tomcat-on-debian/](https://www.linuxtechi.com/how-to-install-apache-tomcat-on-debian/) jusqu'au point 6, plus si souhaité
 - gérer le cas d'une machine type RedHat ou Debian
+- ignorer l'erreur du start tomcat car env containerisé
 
 <br>
 
@@ -38,23 +39,22 @@ Utiliser l'éditeur pour créer le playbook qui permet de gérer le middle
       home: /opt/tomcat
       shell: /bin/false
       groups: tomcat
-  - name: Decompression sources tomcat
+  - name: decompression sources tomcat
     ansible.builtin.unarchive:
       src: "https://downloads.apache.org/tomcat/tomcat-10/v10.1.13/bin/apache-tomcat-10.1.13.tar.gz"
       dest: "/opt/tomcat/"
       remote_src: true
       extra_opts: [--strip-components=1]
-  - name: Trouver les fichiers sh
+  - name: trouver les fichiers sh
     ansible.builtin.find:
-      path: /opt/tomcat/bin
+      paths: /opt/tomcat/bin
       patterns: '*.sh'
-      register: sh_files
+    register: sh_files
   - name: Passer les sh executables
     ansible.builtin.file:
       path: "{{ item.path }}"
-      state: file
       mode: "0755"
-    with_items: sh_files.files
+    with_items: "{{ sh_files.files }}"
   - name: inserer le fichier demon
     ansible.builtin.copy:
       src: "files/tomcat.service"
@@ -108,12 +108,12 @@ WantedBy=multi-user.target
 
 Cette commande jouera le playbook
 ```plain
-ansible-playbook playbook/sys.yml
+ansible-playbook playbook/middle.yml
 ```{{exec}}
 
 Rejouer le playbook pour constater l'idempotence
 ```
-ansible-playbook playbook/sys.yml
+ansible-playbook playbook/middle.yml
 ```
 
 </details>
