@@ -1,0 +1,33 @@
+{
+  "title": "Ansible FabLab",
+  "description": "Ansible : comment fabriquer un lab via ansible ?",
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "details": {
+    "intro": {
+      "foreground": "init/init_cntrs.sh",
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Construire l'inventaire",
+        "text": "text_01.md"
+      },
+      {
+        "title": "Installation librairie complémentaire",
+        "text": "text_02.md"
+      },
+      {
+        "title": "Création playbook : partie locale",
+        "text": "text_03.md"
+      }
+    ],
+    "assets": {
+      "host01": [
+        {"file": "docker-compose_sample.yml", "target": "/root", "chmod": "+x"},
+        {"file": "init_cntrs.sh", "target": "/root", "chmod": "+x"}
+      ]
+    }
+  }
+}

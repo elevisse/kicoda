@@ -1,0 +1,18 @@
+version: "3"
+
+networks:
+  sshnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: <ipv4_network_address>/<Mask>
+
+services:
+  <container_name>:
+    environment:
+      - <ENVVAR>=<value>
+    image: <docker_hub_image>
+    networks:
+      sshnet:
+        ipv4_address: <ipv4_address>
+    restart: always
