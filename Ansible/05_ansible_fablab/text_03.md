@@ -31,7 +31,7 @@ Utiliser l'éditeur pour générer le fichier playbook/main.yml
 
 # Ce playbook crée un lab pour ansible ad-hoc via ansible
 - name: Mise en place reseau local et des images docker
-  hosts: localhost
+  hosts: local
   tasks:
   - name: création network
     community.docker.docker_compose:
