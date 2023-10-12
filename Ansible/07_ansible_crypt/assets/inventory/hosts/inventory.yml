@@ -1,0 +1,10 @@
+all:
+  children:
+    local:
+      hosts:
+        localhost:
+    nodes:
+      hosts:
+        node01:
+        node02:
+        node03:

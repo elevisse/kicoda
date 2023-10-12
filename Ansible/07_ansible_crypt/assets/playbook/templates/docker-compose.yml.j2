@@ -1,0 +1,19 @@
+version: "3"
+
+networks:
+  sshnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "{{ ip_net }}"
+services:
+{% for host in groups['nodes'] %}
+  {{ host }}:
+    environment:
+      ROOT_PASSWORD: "{{ root_password }}"
+    image: "{{ docker_image }}"
+    networks:
+      sshnet:
+        ipv4_address: {{ hostvars[host]['ansible_host'] }}
+    restart: always
+{% endfor %}

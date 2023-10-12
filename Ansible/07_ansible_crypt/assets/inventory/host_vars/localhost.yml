@@ -1,0 +1,4 @@
+ansible_connection: local
+ip_net: "10.1.0.0/16"
+root_password: ubuntu
+docker_image: "takeyamajp/ubuntu-sshd"

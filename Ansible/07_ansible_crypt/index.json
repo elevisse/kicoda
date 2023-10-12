@@ -1,0 +1,33 @@
+{
+  "title": "Ansible chiffrement",
+  "description": "Ansible : on chiffre les informations sensibles",
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "details": {
+    "intro": {
+      "foreground": "init/init_cntrs.sh",
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Regroupement des mots de passe",
+        "text": "text_01.md"
+      },
+      {
+        "title": "Chiffrement des mots de passe",
+        "text": "text_02.md"
+      }
+    ],
+    "assets": {
+      "host01": [
+        {"file": "*", "target": "/root/", "chmod": "+x"},
+        {"file": "inventory/*", "target": "/root/inventory/", "chmod": "+w"},
+        {"file": "inventory/**/*", "target": "/root/", "chmod": "+w"},
+        {"file": "inventory/**/**/*", "target": "/root/", "chmod": "+w"},
+        {"file": "playbook/*", "target": "/root/", "chmod": "+w"},
+        {"file": "playbook/**/*", "target": "/root/", "chmod": "+w"}
+      ]
+    }
+  }
+}
