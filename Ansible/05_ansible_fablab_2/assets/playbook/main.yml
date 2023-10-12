@@ -1,28 +1,45 @@
-Création playbook : empreintes ssh et clés
+---
 
-Actions à réaliser :
-- récupérer les clés ssh sur l'hôte local en lookup via la commande ssh-keyscan
-- boucler sur les hôtes du groupe nodes
-- ajouter la clé publique sur chaque hôte distant
-- noter chaque node dans /etc/hosts
-- créer l'inventaire basique dans /etc/ansible/hosts
-
-Sources :
-- [known_hosts](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/known_hosts_module.html)
-- [pipe_lookup](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/pipe_lookup.html)
-- [ansible.posix](https://docs.ansible.com/ansible/latest/collections/ansible/posix/authorized_key_module.html)
-- [lineinfile](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/lineinfile_module.html)
-
-<br>
-
-<details>
-
-<summary>Solution</summary>
-
-Gestion playbook
-Utiliser l'éditeur pour ajouter les lignes au fichier playbook/main.yml
-```plain
-...
+# Ce playbook crée un lab pour ansible ad-hoc via ansible
+- name: Mise en place reseau local et des images docker
+  hosts: local
+  tasks:
+  - name: creation lab
+    community.docker.docker_compose:
+      project_name: fablab
+      definition:
+        version: '3'
+        networks:
+          sshnet:
+            driver: bridge
+            ipam:
+              config:
+                - subnet: "{{ ip_net }}"
+        services:
+          node01:
+            environment:
+              ROOT_PASSWORD: "{{ root_password }}"
+            image: "{{ docker_image }}"
+            networks:
+              sshnet:
+                ipv4_address: "{{ hostvars['node01']['ansible_host'] }}"
+            restart: always
+          node02:
+            environment:
+              ROOT_PASSWORD: "{{ root_password }}"
+            image: "{{ docker_image }}"
+            networks:
+              sshnet:
+                ipv4_address: "{{ hostvars['node02']['ansible_host'] }}"
+            restart: always
+          node03:
+            environment:
+              ROOT_PASSWORD: "{{ root_password }}"
+            image: "{{ docker_image }}"
+            networks:
+              sshnet:
+                ipv4_address: "{{ hostvars['node03']['ansible_host'] }}"
+            restart: always
 
 # Cette partie gère l'obtention des clés
 - name: Mise en place reseau local et des images docker
@@ -71,5 +88,3 @@ Utiliser l'éditeur pour ajouter les lignes au fichier playbook/main.yml
       mode: '0644'
     delegate_to: localhost
     connection: local
-
-```

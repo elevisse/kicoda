@@ -54,7 +54,7 @@ mkdir -p inventory/host_vars
 touch inventory/host_vars/localhost.yml
 ```{{exec}}
 
-Utiliser l'éditeur pour générer le fichier de variables hôtes pour gérer la machine locale inventory/hosts/localhost.yml
+Utiliser l'éditeur pour générer le fichier de variables hôtes pour gérer la machine locale inventory/host_vars/localhost.yml
 ```plain
 ansible_connection: local
 ip_net: "10.1.0.0/16"
@@ -68,7 +68,7 @@ Créer les fichiers hôtes pour gérer chaque noeud (remplacer <n> par chaque nu
 touch inventory/host_vars/node0<n>.yml
 ```{{exec}}
 
-Utiliser l'éditeur pour générer le fichier de variables hôtes pour gérer la machine locale inventory/hosts/node0<n>.yml
+Utiliser l'éditeur pour générer le fichier de variables hôtes pour gérer la machine locale inventory/host_vars/node0<n>.yml
 ```plain
 ansible_host: 10.1.1.<n>
 

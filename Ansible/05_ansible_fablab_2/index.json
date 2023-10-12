@@ -1,0 +1,27 @@
+{
+  "title": "Ansible FabLab",
+  "description": "Ansible : comment fabriquer un lab via ansible avec des templates ?",
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "details": {
+    "intro": {
+      "foreground": "init/init_cntrs.sh",
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Construire l'inventaire",
+        "text": "text_01.md"
+      }
+    ],
+    "assets": {
+      "host01": [
+        {"file": "*", "target": "/root/", "chmod": "+x"},
+        {"file": "inventory/*", "target": "/root/inventory/", "chmod": "+w"},
+        {"file": "inventory/**/*", "target": "/root/", "chmod": "+w"},
+        {"file": "inventory/**/**/*", "target": "/root/", "chmod": "+w"}
+      ]
+    }
+  }
+}
