@@ -70,3 +70,5 @@ Utiliser l'éditeur pour générer le fichier playbook/main.yml
             restart: always
 
 ```
+
+</details>

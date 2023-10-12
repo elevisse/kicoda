@@ -69,3 +69,15 @@ Modifier le fichier playbook/main.yml pour utiliser le template modifier l'utili
       files:
       - /root/docker-compose.yml
 ```
+
+Utiliser le playbook :
+```plain
+ansible-playbook playbook/main.yml -i inventory
+```{{exec}}
+
+Valider l'idempotence playbook :
+```plain
+ansible-playbook playbook/main.yml -i inventory
+```{{exec}}
+
+</details>

@@ -73,3 +73,5 @@ Utiliser l'éditeur pour ajouter les lignes au fichier playbook/main.yml
     connection: local
 
 ```
+
+</details>
