@@ -20,7 +20,8 @@
         {"file": "*", "target": "/root/", "chmod": "+x"},
         {"file": "inventory/*", "target": "/root/inventory/", "chmod": "+w"},
         {"file": "inventory/**/*", "target": "/root/", "chmod": "+w"},
-        {"file": "inventory/**/**/*", "target": "/root/", "chmod": "+w"}
+        {"file": "inventory/**/**/*", "target": "/root/", "chmod": "+w"},
+        {"file": "playbook/*", "target": "/root/", "chmod": "+w"}
       ]
     }
   }
