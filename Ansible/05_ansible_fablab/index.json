@@ -21,6 +21,10 @@
       {
         "title": "Création playbook : partie locale",
         "text": "text_03.md"
+      },
+      {
+        "title": "Création playbook : empreintes ssh",
+        "text": "text_03.md"
       }
     ],
     "assets": {
