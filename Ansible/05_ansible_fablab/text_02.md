@@ -19,3 +19,5 @@ ansible-galaxy collection install ansible.posix
 ```plain
 ansible-galaxy collection install community.docker
 ```{{exec}}
+
+</details>

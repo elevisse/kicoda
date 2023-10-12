@@ -29,7 +29,7 @@ Utiliser l'éditeur pour ajouter les lignes au fichier playbook/main.yml
   hosts: nodes
   tasks:
   - name: obtention cles ssh
-    ansible.builtin.known_hosts
+    ansible.builtin.known_hosts:
       name: "{{ inventory_hostname }}"
       key: "{{ lookup('ansible.builtin.pipe', 'ssh-keyscan ' + ansible_host) }}"
     delegate_to: localhost
@@ -40,7 +40,7 @@ Utiliser l'éditeur pour ajouter les lignes au fichier playbook/main.yml
       state: present
       key: "{{ lookup('file', '.ssh/id_rsa.pub') }}"
   - name: creation dossier inventaire basique
-    ansible.builtin.file
+    ansible.builtin.file:
       path: /etc/ansible
       state: directory
       mode: '0755'

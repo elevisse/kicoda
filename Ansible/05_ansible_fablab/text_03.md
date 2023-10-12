@@ -8,7 +8,6 @@ Actions à réaliser :
 
 Sources :
 - module [Docker-compose](https://docs.ansible.com/ansible/latest/collections/community/docker/docker_compose_module.html)
-- [boucles](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_loops.html)
 
 <br>
 
@@ -33,7 +32,7 @@ Utiliser l'éditeur pour générer le fichier playbook/main.yml
 - name: Mise en place reseau local et des images docker
   hosts: local
   tasks:
-  - name: création network
+  - name: création lab
     community.docker.docker_compose:
       project_name: fablab
       definition:
@@ -43,21 +42,31 @@ Utiliser l'éditeur pour générer le fichier playbook/main.yml
             driver: bridge
             ipam:
               config:
-                - subnet: {{ ip_net }}
-  - name: creation machines
-    community.docker.docker_compose:
-      project_name: fablab
-      definition:
-        version: '3'
+                - subnet: "{{ ip_net }}"
         services:
-          "{{ item }}"
+          node01:
             environment:
-              - ROOT_PASSWORD="{{ root_password }}"
+              ROOT_PASSWORD: "{{ root_password }}"
             image: "{{ docker_image }}"
-          networks:
-            sshnet:
-              ipv4_address: "{{ item.ansible_host }}"
-          restart: always
-    with_items: "{{ groups['nodes'] }}"
+            networks:
+              sshnet:
+                ipv4_address: "{{ hostvars['node01']['ansible_host'] }}"
+            restart: always
+          node02:
+            environment:
+              ROOT_PASSWORD: "{{ root_password }}"
+            image: "{{ docker_image }}"
+            networks:
+              sshnet:
+                ipv4_address: "{{ hostvars['node02']['ansible_host'] }}"
+            restart: always
+          node03:
+            environment:
+              ROOT_PASSWORD: "{{ root_password }}"
+            image: "{{ docker_image }}"
+            networks:
+              sshnet:
+                ipv4_address: "{{ hostvars['node03']['ansible_host'] }}"
+            restart: always
 
 ```

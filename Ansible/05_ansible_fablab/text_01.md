@@ -57,6 +57,9 @@ touch inventory/host_vars/localhost.yml
 Utiliser l'éditeur pour générer le fichier de variables hôtes pour gérer la machine locale inventory/hosts/inventory.yml
 ```plain
 ansible_connection: local
+ip_net: "10.1.0.0/16"
+root_password: ubuntu
+docker_image: "takeyamajp/ubuntu-sshd"
 
 ```
 
@@ -83,8 +86,7 @@ touch inventory/group_vars/nodes/all.yml
 Utiliser l'éditeur pour gérer la connexion aux noeuds via inventory/group_vars/nodes/all.yml
 ```plain
 ansible_user: root
-root_password: ubuntu
-ip_net: "10.1.0.0/16"
-docker_image: "takeyamajp/ubuntu-sshd"
 
 ```
+
+</details>

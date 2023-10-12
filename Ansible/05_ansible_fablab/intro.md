@@ -7,4 +7,5 @@ Etapes à prendre en considération :
 - mettre à jour les hôtes connus dans localhost avec les empreintes de clés ssh des nouveaux containers
 - copier la clé ssh du noeud local sur les containers
 - ajouter les nodes et les ips sur le fichier /etc/hosts local
+- créer l'invantaire local de la machine
 - tester via ansible ping les commandes ad-hoc
