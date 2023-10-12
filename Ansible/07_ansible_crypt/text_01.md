@@ -19,23 +19,27 @@ supprimer la ligne suivante dans le fichier inventory/group_vars/nodes/all.yml e
 ```
 root_password: ubuntu
 ```
+Créer le dossier global pour tous les hôtes
+```plain
+mkdir -p inventory/group_vars/all
+```{{exec}}
 
 Créer le fichier inventory/group_vars/all.yml
 ```plain
-touch inventory/group_vars/all.yml
+touch inventory/group_vars/all/all.yml
 ```{{exec}}
 
-Editer le fichier inventory/group_vars/all.yml
+Editer le fichier inventory/group_vars/all/all.yml
 ```plain
 root_password: "{{ vault_root_password }}"
 ```
 
-Créer le fichier inventory/group_vars/vault.yml
+Créer le fichier inventory/group_vars/all/vault.yml
 ```plain
 touch inventory/group_vars/vault.yml
 ```{{exec}}
 
-Editer le fichier inventory/group_vars/vault.yml
+Editer le fichier inventory/group_vars/all/vault.yml
 ```plain
 vault_root_password: "ubuntu"
 ```
