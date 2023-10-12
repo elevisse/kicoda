@@ -27,5 +27,5 @@ ansible-playbook playbook/main.yml -i inventory
 tester les commandes ad-hoc :
 ```plain
 ...
-ansible-playbook playbook/main.yml -i inventory
+ansible all -m ansible.builtin.ping
 ```{{exec}}

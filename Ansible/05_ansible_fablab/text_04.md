@@ -24,13 +24,25 @@ Utiliser l'éditeur pour ajouter les lignes au fichier playbook/main.yml
 ```plain
 ...
 
+
 # Cette partie gère l'obtention des clés
 - name: Mise en place reseau local et des images docker
   hosts: nodes
+  gather_facts: no
   tasks:
+  - name: remplissage fichier hosts
+    ansible.builtin.lineinfile:
+      path: /etc/hosts
+      search_string: "{{ ansible_host }}"
+      line: "{{ ansible_host }} {{ inventory_hostname }}"
+      owner: root
+      group: root
+      mode: '0644'
+    delegate_to: localhost
+    connection: local
   - name: obtention cles ssh
     ansible.builtin.known_hosts:
-      name: "{{ inventory_hostname }}"
+      name: "{{ ansible_host }}"
       key: "{{ lookup('ansible.builtin.pipe', 'ssh-keyscan ' + ansible_host) }}"
     delegate_to: localhost
     connection: local
@@ -38,7 +50,9 @@ Utiliser l'éditeur pour ajouter les lignes au fichier playbook/main.yml
     ansible.posix.authorized_key:
       user: root
       state: present
-      key: "{{ lookup('file', '.ssh/id_rsa.pub') }}"
+      key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    vars:
+      ansible_password: "{{ root_password }}"
   - name: creation dossier inventaire basique
     ansible.builtin.file:
       path: /etc/ansible
@@ -52,16 +66,7 @@ Utiliser l'éditeur pour ajouter les lignes au fichier playbook/main.yml
       path: /etc/ansible/hosts
       search_string: "{{ inventory_hostname }}"
       line: "{{ inventory_hostname }}"
-      owner: root
-      group: root
-      mode: '0644'
-    delegate_to: localhost
-    connection: local
-  - name: remplissage fichier hosts
-    ansible.builtin.lineinfile:
-      path: /etc/hosts
-      search_string: "{{ ansible_host }}"
-      line: "{{ ansible_host }} {{ inventory_hostname }}"
+      create: true
       owner: root
       group: root
       mode: '0644'

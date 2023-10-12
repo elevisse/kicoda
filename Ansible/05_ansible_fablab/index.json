@@ -23,8 +23,12 @@
         "text": "text_03.md"
       },
       {
-        "title": "Création playbook : empreintes ssh",
-        "text": "text_03.md"
+        "title": "Création playbook : partie distante",
+        "text": "text_04.md"
+      },
+      {
+        "title": "Création playbook : validations",
+        "text": "text_05.md"
       }
     ],
     "assets": {

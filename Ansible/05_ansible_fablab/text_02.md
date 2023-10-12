@@ -12,6 +12,7 @@ Sources :
 <details>
 
 <summary>Solution</summary>
+
 Installer les collections :
 ```plain
 ansible-galaxy collection install ansible.posix
