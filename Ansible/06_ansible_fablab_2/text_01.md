@@ -29,24 +29,24 @@ touch playbook/templates/docker-compose.yml.j2
 
 Editer le template playbook/templates/docker-compose.yml.j2 afin d'optimiser les services via des boucles :
 ```plain
-project_name: fablab
-definition:
-  version: '3'
-  networks:
-    sshnet:
-      driver: bridge
-      ipam:
-        config:
-          - subnet: "{{ ip_net }}"
-  services:
+version: "3"
+
+networks:
+  sshnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "{{ ip_net }}"
+services:
 {% for host in groups['nodes'] %}
-    "{{ host }}":
-        ROOT_PASSWORD: "{{ root_password }}"
-      image: "{{ docker_image }}"
-      networks:
-        sshnet:
-          ipv4_address: "{{ hostvars[host]['ansible_host'] }}"
-      restart: always
+  {{ host }}:
+    environment:
+      ROOT_PASSWORD: "{{ root_password }}"
+    image: "{{ docker_image }}"
+    networks:
+      sshnet:
+        ipv4_address: {{ hostvars[host]['ansible_host'] }}
+    restart: always
 {% endfor %}
 
 ```
@@ -66,8 +66,10 @@ Modifier le fichier playbook/main.yml pour utiliser le template modifier l'utili
       mode: '0644'
   - name: creation lab
     community.docker.docker_compose:
+      project_src: flask
       files:
       - /root/docker-compose.yml
+...
 ```
 
 Utiliser le playbook :

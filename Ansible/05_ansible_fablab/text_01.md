@@ -86,6 +86,7 @@ touch inventory/group_vars/nodes/all.yml
 Utiliser l'éditeur pour gérer la connexion aux noeuds via inventory/group_vars/nodes/all.yml
 ```plain
 ansible_user: root
+root_password: ubuntu
 
 ```
 

@@ -56,10 +56,16 @@
       mode: '0644'
     delegate_to: localhost
     connection: local
-  - name: obtention cles ssh
+  - name: obtention cles ssh ips
     ansible.builtin.known_hosts:
       name: "{{ ansible_host }}"
       key: "{{ lookup('ansible.builtin.pipe', 'ssh-keyscan ' + ansible_host) }}"
+    delegate_to: localhost
+    connection: local
+  - name: obtention cles ssh noms d'hotes
+    ansible.builtin.known_hosts:
+      name: "{{ inventory_hostname }}"
+      key: "{{ lookup('ansible.builtin.pipe', 'ssh-keyscan ' + inventory_hostname) }}"
     delegate_to: localhost
     connection: local
   - name: depose de la cle publique
