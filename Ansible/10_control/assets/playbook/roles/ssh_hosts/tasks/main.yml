@@ -1,0 +1,10 @@
+---
+
+# Ce fichier gère les appels des autres tâches
+- name: appel gestion hosts
+  ansible.builtin.include_tasks:
+    file: hosts.yml
+
+- name: appel gestion ssh
+  ansible.builtin.include_tasks:
+    file: ssh.yml

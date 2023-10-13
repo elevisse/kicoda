@@ -1,0 +1,14 @@
+---
+
+# Ce playbook crée un lab pour ansible ad-hoc via ansible
+- name: Mise en place reseau local et des images docker
+  hosts: local
+  roles:
+  - role: docker_compose
+
+# Cette partie gère l'obtention des clés
+- name: Mise en place reseau local et des images docker
+  hosts: nodes
+  gather_facts: no
+  roles:
+  - role: ssh_hosts

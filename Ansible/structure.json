@@ -11,6 +11,7 @@
     { "path": "06_ansible_fablab_2", "title": "Apprendre à construire un playbook, inventaire avancé avec des templates" },
     { "path": "07_ansible_crypt", "title": "Chiffrement via ansible-vault" },
     { "path": "08_sources_externes", "title": "Utiliser des projets distants"},
-    { "path": "09_roles", "title": "Créer des rôles"}
+    { "path": "09_roles", "title": "Créer des rôles"},
+    { "path": "10_control", "title": "Contrôle de code"}
   ]
 }

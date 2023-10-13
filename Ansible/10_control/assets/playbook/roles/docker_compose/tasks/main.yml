@@ -1,0 +1,16 @@
+---
+
+# Ce fichier gère les actions à réaliser sur la machine locale
+- name: template lab
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: /root/docker-compose.yml
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: creation lab
+  community.docker.docker_compose:
+    project_src: flask
+    files:
+    - /root/docker-compose.yml
