@@ -57,11 +57,11 @@ Editer pour y mettre les actions nécessaire
     mode: '0644'
 
 - name: creation lab
-  community.docker.docker-compose:
+  community.docker.docker_compose:
     project_src: flask
     files:
     - /root/docker-compose.yml
 
-```{{exec}}
+```
 
 </details>

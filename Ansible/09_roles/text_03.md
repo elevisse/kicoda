@@ -2,6 +2,13 @@
 
 Actions à réaliser :
 - modification du playbook pour appeler les rôles
+- installer la collection ansible.posix
+- installer la collection community.docker
+- tester le playbook
+
+Sources :
+- [docker_compose](https://docs.ansible.com/ansible/latest/collections/community/docker/docker_compose_module.html#community-docker-docker-compose-module-manage-multi-container-docker-applications-with-docker-compose)
+- [ansible.posix](https://docs.ansible.com/ansible/latest/collections/ansible/posix/authorized_key_module.html)
 
 <br>
 
@@ -26,8 +33,21 @@ Modifier le playbook/main.yml pour appeler les rôles :
   hosts: nodes
   gather_facts: no
   roles:
-  - role: ssh
+  - role: ssh_hosts
 
 ```
+
+Installer les collections :
+```plain
+ansible-galaxy collection install ansible.posix
+```{{exec}}
+```plain
+ansible-galaxy collection install community.docker
+```{{exec}}
+
+Tester le fichier palybook :
+```plain
+ansible-playbook playbook/main.yml -i inventory --ask-vault-pass
+```{{exec}}
 
 </details>
