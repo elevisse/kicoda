@@ -1,40 +1,57 @@
-# chiffrer et appeler les informations sensibles
+# On fait la même chose par scripting
 
-Actions à réaliser sur l'inventaire :
-- chiffrer via ansible-vault le fichier sensible avec le mot de passe sensible
-- appeler le playbook avec --ask-vault-pass
-- créer un fichier caché et appeler le playbook avec --vault-pass-file
+Action hors script :
+- créer le fichier mot de passe vault ~/.vault_pass_file avec le mot de passe sensible
 
-Sources :
-- [commande ansible-vault](https://docs.ansible.com/ansible/latest/cli/ansible-vault.html)
-- [vault dans les playbooks](https://docs.ansible.com/ansible/latest/vault_guide/vault_managing_passwords.html)
-- [chiffrement de fichiers complets](https://docs.ansible.com/ansible/latest/vault_guide/vault_using_encrypted_content.html)
+Actions à réaliser dans le script :
+- Supprimer le dossier kicoda s'il existe
+- cloner le projet [elevisse/kicoda](https://github.com/elevisse/kicoda)
+- aller dans le repertoire Ansible/project
+- jouer le playbook présent dans project/Ansible/playbook avec l'inventaire de project/inventory avec le fichier de mot de passe vault
+
 <br>
 
 <details>
 
 <summary>Solution</summary>
 
-## Chiffrement 
-Chiffrer le fichier inventory/group_vars/all/vault.yml et utiliser le mot de passe sensible
-```plain
-ansible-vault encrypt inventory/group_vars/all/vault.yml --ask-vault-pass
-```{{exec}}
-
-## Appels et tests
-Appeler le playbook avec le mot de passe vault
-```plain
-ansible-playbook playbook/main.yml -i inventory --ask-vault-pass
-```{{exec}}
+## Actions
 
 Créer le fichier de mot de passe vault
 ```plain
-echo "sensible" >> .vault_pass_file
+cd
+```{{exec}}
+```plain
+echo "sensible" >> ~/.vault_pass_file
 ```{{exec}}
 
-Appeler le playbook avec le fichier
+## Scripting
+
+Créer le fichier de script call_playbook.sh et le rendre éxécutable :
 ```plain
-ansible-playbook playbook/main.yml -i inventory --vault-pass-file .vault_pass_file
+touch call_playbook.sh
+```{{exec}}
+```plain
+chmod +x call_playbook.sh
+```{{exec}}
+
+Utiliser l'éditeur pour construire le script:
+```plain
+#!/bin/bash
+
+if [ -d "kicoda" ]; then
+    rm -Rf kicoda
+fi
+git clone https://github.com/elevisse/kicoda
+cd kicoda/Ansible/project
+ansible-playbook playbook/main.yml -i inventory --vault-pass-file ~/.vault_pass_file
+cd
+
+```
+
+Jouer le playbook :
+```plain
+./call_playbook.sh
 ```{{exec}}
 
 </details>

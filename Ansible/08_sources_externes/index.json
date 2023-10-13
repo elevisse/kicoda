@@ -1,6 +1,6 @@
 {
   "title": "Ansible sources distantes",
-  "description": "Ansible : on chiffre les informations sensibles",
+  "description": "Ansible : on clone et on scripte",
   "backend": {
     "imageid": "ubuntu"
   },

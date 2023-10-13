@@ -43,3 +43,5 @@ Editer le fichier inventory/group_vars/all/vault.yml
 ```plain
 vault_root_password: "ubuntu"
 ```
+
+</details>
