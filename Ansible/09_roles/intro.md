@@ -1,1 +1,1 @@
-Ici, on chiffre les informations sensibles
+Ici, on industrialise
