@@ -7,6 +7,6 @@ unlink /usr/bin/python
 ln -s /usr/bin/python3.9 /usr/bin/python
 unlink /usr/bin/python3
 ln -s /usr/bin/python3.9 /usr/bin/python3
-pip install ansible
+pip install ansible cffi
 ansible-galaxy collection install ansible.posix
 ansible-galaxy collection install community.docker
