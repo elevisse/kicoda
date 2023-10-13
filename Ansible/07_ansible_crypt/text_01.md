@@ -19,6 +19,7 @@ supprimer la ligne suivante dans le fichier inventory/group_vars/nodes/all.yml e
 ```
 root_password: ubuntu
 ```
+
 Créer le dossier global pour tous les hôtes
 ```plain
 mkdir -p inventory/group_vars/all

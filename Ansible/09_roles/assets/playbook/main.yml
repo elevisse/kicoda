@@ -1,0 +1,72 @@
+---
+
+# Ce playbook crée un lab pour ansible ad-hoc via ansible
+- name: Mise en place reseau local et des images docker
+  hosts: local
+  tasks:
+  - name: template lab
+    ansible.builtin.template:
+      src: templates/docker-compose.yml.j2
+      dest: /root/docker-compose.yml
+      owner: root
+      group: root
+      mode: '0644'
+  - name: creation lab
+    community.docker.docker_compose:
+      project_src: flask
+      files:
+      - /root/docker-compose.yml
+
+# Cette partie gère l'obtention des clés
+- name: Mise en place reseau local et des images docker
+  hosts: nodes
+  gather_facts: no
+  tasks:
+  - name: remplissage fichier hosts
+    ansible.builtin.lineinfile:
+      path: /etc/hosts
+      search_string: "{{ ansible_host }}"
+      line: "{{ ansible_host }} {{ inventory_hostname }}"
+      owner: root
+      group: root
+      mode: '0644'
+    delegate_to: localhost
+    connection: local
+  - name: obtention cles ssh ips
+    ansible.builtin.known_hosts:
+      name: "{{ ansible_host }}"
+      key: "{{ lookup('ansible.builtin.pipe', 'ssh-keyscan ' + ansible_host) }}"
+    delegate_to: localhost
+    connection: local
+  - name: obtention cles ssh noms d'hotes
+    ansible.builtin.known_hosts:
+      name: "{{ inventory_hostname }}"
+      key: "{{ lookup('ansible.builtin.pipe', 'ssh-keyscan ' + inventory_hostname) }}"
+    delegate_to: localhost
+    connection: local
+  - name: depose de la cle publique
+    ansible.posix.authorized_key:
+      user: root
+      state: present
+      key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    vars:
+      ansible_password: "{{ root_password }}"
+  - name: creation dossier inventaire basique
+    ansible.builtin.file:
+      path: /etc/ansible
+      state: directory
+      mode: '0755'
+    delegate_to: localhost
+    connection: local
+    when: inventory_hostname == groups['nodes'][0]
+  - name: remplissage inventaire basique
+    ansible.builtin.lineinfile:
+      path: /etc/ansible/hosts
+      search_string: "{{ inventory_hostname }}"
+      line: "{{ inventory_hostname }}"
+      create: true
+      owner: root
+      group: root
+      mode: '0644'
+    delegate_to: localhost
+    connection: local

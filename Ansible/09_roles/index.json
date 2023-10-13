@@ -1,0 +1,37 @@
+{
+  "title": "Ansible rôles",
+  "description": "Ansible : on industrialise",
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "details": {
+    "intro": {
+      "foreground": "init/init_cntrs.sh",
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Création role pour local",
+        "text": "text_01.md"
+      },
+      {
+        "title": "Création role pour distant",
+        "text": "text_02.md"
+      },
+      {
+        "title": "Modification playbook",
+        "text": "text_03.md"
+      }
+    ],
+    "assets": {
+      "host01": [
+        {"file": "*", "target": "/root/", "chmod": "+x"},
+        {"file": "inventory/*", "target": "/root/inventory/", "chmod": "+w"},
+        {"file": "inventory/**/*", "target": "/root/", "chmod": "+w"},
+        {"file": "inventory/**/**/*", "target": "/root/", "chmod": "+w"},
+        {"file": "playbook/*", "target": "/root/", "chmod": "+w"},
+        {"file": "playbook/**/*", "target": "/root/", "chmod": "+w"}
+      ]
+    }
+  }
+}
