@@ -36,7 +36,7 @@ root_password: "{{ vault_root_password }}"
 
 Créer le fichier inventory/group_vars/all/vault.yml
 ```plain
-touch inventory/group_vars/vault.yml
+touch inventory/group_vars/all/vault.yml
 ```{{exec}}
 
 Editer le fichier inventory/group_vars/all/vault.yml
