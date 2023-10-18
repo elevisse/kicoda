@@ -10,7 +10,7 @@ Actions à réaliser :
 Sources :
 - [known_hosts](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/known_hosts_module.html)
 - [pipe_lookup](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/pipe_lookup.html)
-- [ansible.posix](https://docs.ansible.com/ansible/latest/collections/ansible/posix/authorized_key_module.html)
+- [authorized_key](https://docs.ansible.com/ansible/latest/collections/ansible/posix/authorized_key_module.html)
 - [lineinfile](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/lineinfile_module.html)
 
 <br>
