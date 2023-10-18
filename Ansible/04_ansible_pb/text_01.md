@@ -2,7 +2,7 @@ Utiliser les playbooks ansible
 
 Actions à réaliser :
 - créer un dossier playbook et mettre chaque playbook dedans. Conserver main.yml pour le tout dernier excercice
-- créer un playbook qui met à jour les packages système et cree un user app
+- créer un playbook qui met à jour les packages systèmes et cree un user app
 
 <br>
 
@@ -22,7 +22,7 @@ Utiliser l'éditeur pour créer le playbook qui permet de gérer le système
 ```plain
 ---
 
-# Ce playbook mets a jour les paquets systemes et cree un utilisateur applicatif app
+# Ce playbook met a jour les paquets systemes et cree un utilisateur applicatif app
 - name: MAJ et user app
   hosts: all
   tasks:

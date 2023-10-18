@@ -50,7 +50,7 @@ Utiliser l'éditeur pour créer le playbook qui permet de gérer le frontal
     vars:
       params:
         files:
-          - '{{ansible_os_family}}.yml'
+          - "{{ansible_os_family}}.yml"
           - default.yml
         paths:
           - 'vars'

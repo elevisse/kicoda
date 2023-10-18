@@ -3,7 +3,6 @@ Utiliser les playbooks ansible
 Actions à réaliser :
 - créer un playbook d'installation tomcat qui s'applique uniquement aux machines "middle"
 - se baser sur ce tuto : [https://www.linuxtechi.com/how-to-install-apache-tomcat-on-debian/](https://www.linuxtechi.com/how-to-install-apache-tomcat-on-debian/) jusqu'au point 6, plus si souhaité
-- gérer le cas d'une machine type RedHat ou Debian
 - ignorer l'erreur du start tomcat car env containerisé
 
 <br>
