@@ -1,8 +1,8 @@
-Utiliser l'utilitaire python pip pour installer ansible et on vérifie sa présence.
+Utiliser le commandes ssh afin de copier la clé sur la machine distante.
 
 Actions à réaliser :
 - créer une clé ssh
-- copier la clés sur l'hôte distant node01
+- copier la clés sur l'hôte distant node01 avec l'utilisateur ubuntu
 - tester la connexion
 
 <br>
