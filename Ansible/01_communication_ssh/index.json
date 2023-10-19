@@ -11,8 +11,7 @@
     "steps": [
       {
         "title": "Faire communiquer ansible",
-        "text": "text.md",
-        "verify": "verify.sh"
+        "text": "text.md"
       }
     ],
     "finish": {
