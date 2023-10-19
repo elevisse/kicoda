@@ -66,7 +66,7 @@ Modifier le fichier playbook/main.yml pour utiliser le template modifier l'utili
       mode: '0644'
   - name: creation lab
     community.docker.docker_compose:
-      project_src: flask
+      project_src: fablab
       files:
       - /root/docker-compose.yml
 ...

@@ -58,7 +58,7 @@ Editer pour y mettre les actions nécessaire
 
 - name: creation lab
   community.docker.docker_compose:
-    project_src: flask
+    project_src: fablab
     files:
     - /root/docker-compose.yml
 
