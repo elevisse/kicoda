@@ -2,7 +2,7 @@
 
 Actions à réaliser sur l'inventaire :
 - créer un fichier vault.yml pour chaque élément sensible
-- regrouper au maximum pour n'avoir qu'une seule varaible
+- regrouper au maximum pour n'avoir qu'une seule variable
 
 Sources :
 - [commande ansible-vault](https://docs.ansible.com/ansible/latest/cli/ansible-vault.html)

@@ -2,8 +2,8 @@
 
 Actions à réaliser :
 - cloner le projet [elevisse/kicoda](https://github.com/elevisse/kicoda)
-- aller dans le repertoire project
-- jouer le playbook présent dans project/Ansible/playbook avec l'inventaire de project/inventory
+- aller dans le repertoire du projet github Ansible/project
+- jouer le playbook présent avec l'inventaire inventory
 - utiliser le mot de passe vault sensible
 - tester la commande ad-hoc
 
