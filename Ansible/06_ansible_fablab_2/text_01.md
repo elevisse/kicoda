@@ -16,7 +16,7 @@ Sources :
 
 <summary>Solution</summary>
 
-## Gestion inventaire
+## Gestion template
 Créer le dossier template pour le playbook
 ```plain
 mkdir -p playbook/templates
@@ -83,3 +83,7 @@ ansible-playbook playbook/main.yml -i inventory
 ```{{exec}}
 
 </details>
+
+## excercice bonus sans correction :
+- créer le template pour gérer le fichier /etc/hosts rétrocompatible lab
+- faire de même pour l'inventaire basique ansible /etc/ansible/hosts
