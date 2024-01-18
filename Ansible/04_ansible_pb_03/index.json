@@ -1,0 +1,25 @@
+{
+  "title": "Ansible : playbook",
+  "description": "Ansible : création d'un playbook tomcat",
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "details": {
+    "intro": {
+      "foreground": "init/init_cntrs.sh",
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Créer et tester un playbook applicatif middle",
+        "text": "text_01.md"
+      }
+    ],
+    "assets": {
+      "host01": [
+        {"file": "docker-compose.yml", "target": "/root", "chmod": "+x"},
+        {"file": "init_cntrs.sh", "target": "/root", "chmod": "+x"}
+      ]
+    }
+  }
+}

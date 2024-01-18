@@ -1,6 +1,6 @@
 {
   "title": "Ansible : playbook",
-  "description": "Ansible : création d'un premier playbook",
+  "description": "Ansible : création d'un premier playbook système",
   "backend": {
     "imageid": "ubuntu"
   },
@@ -13,22 +13,6 @@
       {
         "title": "Créer et tester un playbook système",
         "text": "text_01.md"
-      },
-      {
-        "title": "Créer et tester un playbook applicatif frontal",
-        "text": "text_02.md"
-      },
-      {
-        "title": "Créer et tester un playbook applicatif middle",
-        "text": "text_03.md"
-      },
-      {
-        "title": "Créer et tester un playbook applicatif back",
-        "text": "text_04.md"
-      },
-      {
-        "title": "Fusionner les playbooks",
-        "text": "text_05.md"
       }
     ],
     "assets": {

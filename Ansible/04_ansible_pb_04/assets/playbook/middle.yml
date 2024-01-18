@@ -1,0 +1,54 @@
+---
+
+# Ce playbook cree le user et le middle tomcat
+- name: tomcat
+  hosts: middle
+  tasks:
+  - name: installer jdk
+    ansible.builtin.package:
+      name:
+      - openjdk-11-jdk
+      - sudo
+      state: latest
+  - name: ajouter groupe tomcat
+    ansible.builtin.group:
+      name: tomcat
+      state: present
+  - name: ajouter user tomcat
+    ansible.builtin.user:
+      name: tomcat
+      home: /opt/tomcat
+      shell: /bin/false
+      groups: tomcat
+  - name: decompression sources tomcat
+    ansible.builtin.unarchive:
+      src: "https://downloads.apache.org/tomcat/tomcat-10/v10.1.18/bin/apache-tomcat-10.1.18.tar.gz"
+      dest: "/opt/tomcat/"
+      remote_src: true
+      extra_opts: [--strip-components=1]
+  - name: trouver les fichiers sh
+    ansible.builtin.find:
+      paths: /opt/tomcat/bin
+      patterns: '*.sh'
+    register: sh_files
+  - name: Passer les sh executables
+    ansible.builtin.file:
+      path: "{{ item.path }}"
+      mode: "0755"
+    with_items: "{{ sh_files.files }}"
+  - name: inserer le fichier demon
+    ansible.builtin.copy:
+      src: "files/tomcat.service"
+      dest: "/etc/systemd/system/tomcat.service"
+      mode: "0755"
+    notify: "start tomcat"
+  handlers:
+    - name: start tomcat
+      ansible.builtin.systemd:
+        name: tomcat
+        daemon_reload: true
+        enabled: true
+        state: restarted
+        force: true
+      become: yes
+      ignore_errors: yes

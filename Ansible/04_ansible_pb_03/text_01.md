@@ -3,6 +3,7 @@ Utiliser les playbooks ansible
 Actions à réaliser :
 - créer un playbook d'installation tomcat qui s'applique uniquement aux machines "middle"
 - se baser sur ce tuto : [https://www.linuxtechi.com/how-to-install-apache-tomcat-on-debian/](https://www.linuxtechi.com/how-to-install-apache-tomcat-on-debian/) jusqu'au point 6, plus si souhaité
+- Attention au lien de l'archive : les versions évoluent
 - ignorer l'erreur du start tomcat car env containerisé
 
 <br>
@@ -42,7 +43,7 @@ Utiliser l'éditeur pour créer le playbook qui permet de gérer le middle
       groups: tomcat
   - name: decompression sources tomcat
     ansible.builtin.unarchive:
-      src: "https://downloads.apache.org/tomcat/tomcat-10/v10.1.13/bin/apache-tomcat-10.1.13.tar.gz"
+      src: "https://downloads.apache.org/tomcat/tomcat-10/v10.1.18/bin/apache-tomcat-10.1.18.tar.gz"
       dest: "/opt/tomcat/"
       remote_src: true
       extra_opts: [--strip-components=1]
