@@ -37,8 +37,8 @@ ansible-playbook playbook/main.yml
 ```{{exec}}
 
 Rejouer le playbook pour constater l'idempotence
-```
+```plain
 ansible-playbook playbook/main.yml
-```
+```{{exec}}
 
 </details>
