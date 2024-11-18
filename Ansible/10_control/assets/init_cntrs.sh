@@ -3,6 +3,11 @@ apt update -y
 apt install sshpass python3.9 ca-certificates curl -y
 update-alternatives --install /usr/bin/python python /usr/bin/python3.9 1
 
+unlink /usr/bin/python
+ln -s /usr/bin/python3.9 /usr/bin/python
+unlink /usr/bin/python3
+ln -s /usr/bin/python3.9 /usr/bin/python3
+
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do apt remove $pkg -y; done
 install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
@@ -16,11 +21,6 @@ echo \
 
 apt update -y
 apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y -q -o DPkg::Options::=--force-confdef
-
-unlink /usr/bin/python
-ln -s /usr/bin/python3.9 /usr/bin/python
-unlink /usr/bin/python3
-ln -s /usr/bin/python3.9 /usr/bin/python3
 
 pip install ansible cffi
 ansible-galaxy collection install ansible.posix
