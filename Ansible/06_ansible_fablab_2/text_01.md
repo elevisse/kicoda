@@ -6,7 +6,7 @@ Actions à réaliser :
 - modifier le playbook et tester
 
 Sources :
-- [module docker_compose](https://docs.ansible.com/ansible/latest/collections/community/docker/docker_compose_module.html)
+- [module docker_compose](https://docs.ansible.com/ansible/latest/collections/community/docker/docker_compose_v2_module.html#ansible-collections-community-docker-docker-compose-v2-module)
 - [playbooks_templating](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_templating.html)
 - [module template](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/template_module.html)
 - [Docs sur jinja2](https://jinja.palletsprojects.com/en/3.1.x/)
@@ -61,6 +61,13 @@ Modifier le fichier playbook/main.yml pour utiliser le template modifier l'utili
     ansible.builtin.template:
       src: templates/docker-compose.yml.j2
       dest: /root/docker-compose.yml
+      owner: root
+      group: root
+      mode: '0644'
+  - name: creation folder lab
+    ansible.builtin.file:
+      path: /root/playbook/fablab
+      state: directory
       owner: root
       group: root
       mode: '0644'
