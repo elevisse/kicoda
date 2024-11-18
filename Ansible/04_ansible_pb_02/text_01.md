@@ -76,8 +76,8 @@ ansible-playbook playbook/front.yml
 ```{{exec}}
 
 Rejouer le playbook pour constater l'idempotence
-```
+```plain
 ansible-playbook playbook/front.yml
-```
+```{{exec}}
 
 </details>

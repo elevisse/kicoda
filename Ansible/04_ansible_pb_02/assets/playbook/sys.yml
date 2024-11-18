@@ -1,0 +1,20 @@
+---
+
+# Ce playbook met a jour les paquets systemes et cree un utilisateur applicatif app
+- name: MAJ et user app
+  hosts: all
+  tasks:
+  - name: MAJ
+    ansible.builtin.package:
+      name: "*"
+      state: latest
+  - name: ajouter groupe app
+    ansible.builtin.group:
+      name: app
+      state: present
+  - name: user app
+    ansible.builtin.user:
+      name: app
+      groups: app
+      shell: /bin/bash
+      append: yes
