@@ -5,7 +5,7 @@
   hosts: local
   tasks:
   - name: creation lab
-    community.docker.docker_compose:
+    community.docker.docker_compose_v2:
       project_name: fablab
       definition:
         version: '3'

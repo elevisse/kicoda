@@ -65,7 +65,7 @@ Modifier le fichier playbook/main.yml pour utiliser le template modifier l'utili
       group: root
       mode: '0644'
   - name: creation lab
-    community.docker.docker_compose:
+    community.docker.docker_compose_v2:
       project_src: fablab
       files:
       - /root/docker-compose.yml
