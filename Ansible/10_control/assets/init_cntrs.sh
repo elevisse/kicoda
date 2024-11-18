@@ -1,6 +1,6 @@
 #!/bin/bash
 apt update -y
-apt install sshpass python3.9 ca-certificates curl -y
+apt install sshpass python3.10 ca-certificates curl -y
 update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1
 
 unlink /usr/bin/python
