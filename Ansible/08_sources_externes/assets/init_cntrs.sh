@@ -14,7 +14,7 @@ echo \
   tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 apt update
-apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y -q
+apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y -q -o DPkg::Options::=--force-confdef
 
 pip install ansible
 ansible-galaxy collection install ansible.posix
