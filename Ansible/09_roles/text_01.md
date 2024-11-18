@@ -56,8 +56,16 @@ Editer pour y mettre les actions nécessaire
     group: root
     mode: '0644'
 
+- name: creation folder lab
+  ansible.builtin.file:
+    path: /root/playbook/fablab
+    state: directory
+    owner: root
+    group: root
+    mode: '0644'
+
 - name: creation lab
-  community.docker.docker_compose:
+  community.docker.docker_compose_v2:
     project_src: fablab
     files:
     - /root/docker-compose.yml
