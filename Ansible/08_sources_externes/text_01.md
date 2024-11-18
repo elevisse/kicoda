@@ -21,7 +21,7 @@ git clone https://github.com/elevisse/kicoda
 
 Aller dans le dossier kicoda/Ansible/project
 ```
-cd kicoda/project
+cd kicoda/Ansible/project
 ```{{exec}}
 
 Jouer le playbook avec le mot de passe sensible
