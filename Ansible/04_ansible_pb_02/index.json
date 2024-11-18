@@ -18,7 +18,9 @@
     "assets": {
       "host01": [
         {"file": "docker-compose.yml", "target": "/root", "chmod": "+x"},
-        {"file": "init_cntrs.sh", "target": "/root", "chmod": "+x"}
+        {"file": "init_cntrs.sh", "target": "/root", "chmod": "+x"},
+        {"file": "playbook/*", "target": "/root/", "chmod": "+w"},
+        {"file": "playbook/**/*", "target": "/root/", "chmod": "+w"}
       ]
     }
   }

@@ -116,8 +116,8 @@ ansible-playbook playbook/middle.yml
 ```{{exec}}
 
 Rejouer le playbook pour constater l'idempotence
-```
+```plain
 ansible-playbook playbook/middle.yml
-```
+```{{exec}}
 
 </details>

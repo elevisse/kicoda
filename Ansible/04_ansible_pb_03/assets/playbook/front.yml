@@ -1,0 +1,28 @@
+---
+
+# Ce playbook installe apache et nodeJS
+- name: Apache et nodeJS
+  hosts: frontal
+  tasks:
+  - name: variables OS
+    ansible.builtin.include_vars: "{{ lookup('ansible.builtin.first_found', params) }}"
+    vars:
+      params:
+        files:
+          - "{{ansible_os_family}}.yml"
+          - default.yml
+        paths:
+          - 'vars'
+  - name: apache
+    ansible.builtin.package:
+      name: "{{ apache_pck }}"
+      state: latest
+  - name: EPEL on CentOS
+    ansible.builtin.yum:
+      name: epel-release
+      state: present
+    when: ansible_facts['os_family'] == "RedHat"
+  - name: nodeJS
+    ansible.builtin.package:
+      name: "nodejs"
+      state: latest
