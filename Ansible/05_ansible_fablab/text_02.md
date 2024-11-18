@@ -5,7 +5,7 @@ Actions à réaliser :
 - installer la collection community.docker
 
 Sources :
-- [docker_compose](https://docs.ansible.com/ansible/latest/collections/community/docker/docker_compose_module.html#community-docker-docker-compose-module-manage-multi-container-docker-applications-with-docker-compose)
+- [docker_compose](https://docs.ansible.com/ansible/latest/collections/community/docker/docker_compose_v2_module.html#ansible-collections-community-docker-docker-compose-v2-module)
 - [ansible.posix](https://docs.ansible.com/ansible/latest/collections/ansible/posix/authorized_key_module.html)
 <br>
 

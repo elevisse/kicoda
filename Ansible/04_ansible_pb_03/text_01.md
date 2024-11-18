@@ -43,7 +43,7 @@ Utiliser l'éditeur pour créer le playbook qui permet de gérer le middle
       groups: tomcat
   - name: decompression sources tomcat
     ansible.builtin.unarchive:
-      src: "https://downloads.apache.org/tomcat/tomcat-10/v10.1.33/bin/apache-tomcat-10.1.18.tar.gz"
+      src: "https://downloads.apache.org/tomcat/tomcat-10/v10.1.33/bin/apache-tomcat-10.1.33.tar.gz"
       dest: "/opt/tomcat/"
       remote_src: true
       extra_opts: [--strip-components=1]

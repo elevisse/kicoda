@@ -33,7 +33,7 @@ Utiliser l'éditeur pour générer le fichier playbook/main.yml
   hosts: local
   tasks:
   - name: création lab
-    community.docker.docker_compose:
+    community.docker.docker_compose_v2:
       project_name: fablab
       definition:
         version: '3'
