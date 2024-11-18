@@ -17,3 +17,5 @@ apt update
 apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y -q
 
 pip install ansible
+ansible-galaxy collection install ansible.posix
+ansible-galaxy collection install community.docker
