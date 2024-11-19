@@ -24,5 +24,5 @@ apt update -y
 apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y -q -o DPkg::Options::=--force-confdef
 
 pip install ansible cffi
-ansible-galaxy collection install ansible.posix
-ansible-galaxy collection install community.docker
+ansible-galaxy collection install ansible.posix --force
+ansible-galaxy collection install community.docker --force

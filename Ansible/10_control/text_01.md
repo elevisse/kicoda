@@ -26,7 +26,7 @@ ansible-lint playbook
 
 Ici, la solution n'indique pas comment corriger les erreurs
 
-Tester le playbook (impossible pour la session du 20-21/11) :
+Tester le playbook :
 ```plain
 ansible-playbook playbook/main.yml -i inventory --ask-vault-pass
 ```{{exec}}
