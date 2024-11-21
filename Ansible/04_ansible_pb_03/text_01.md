@@ -5,6 +5,7 @@ Actions à réaliser :
 - se baser sur ce tuto : [https://www.linuxtechi.com/how-to-install-apache-tomcat-on-debian/](https://www.linuxtechi.com/how-to-install-apache-tomcat-on-debian/) jusqu'au point 6, plus si souhaité
 - Attention au lien de l'archive : les versions évoluent
 - ignorer l'erreur du start tomcat car env containerisé
+- utiliser le module [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/unarchive_module.html](ansible unarchive) télécharger et désarchiver directement le tar.gz tomcat depuis sa source internet
 
 <br>
 
