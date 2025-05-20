@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt update -y
-apt install sshpass -y
+apt install sshpass python3.12-venv -y
 
 mkdir -p /etc/ansible
 echo '[frontal]' > /etc/ansible/hosts
@@ -23,4 +23,9 @@ for n_node in {1..4}; do
         sshpass -p ubuntu ssh-copy-id root@node0$n_node
     fi
 done
+python3.12 -m venv ansible
+cd ansible
+source bin/activate
 pip install ansible
+deactivate
+cd ~

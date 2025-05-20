@@ -10,6 +10,12 @@ Actions à réaliser :
 
 <summary>Solution</summary>
 
+Activer le virtual env :
+```plain
+cd ansible
+source bin/activate
+```{{exec}}
+
 Créer le dossier playbook et créer le playbook sys.yml
 ```plain
 mkdir -p playbook
