@@ -9,6 +9,12 @@ Actions à réaliser :
 
 <summary>Solution</summary>
 
+Activer le virtual env :
+```plain
+cd ~/ansible
+source bin/activate
+```{{exec}}
+
 Créer le playbook back.yml
 ```plain
 touch playbook/back.yml
