@@ -16,12 +16,12 @@ Cette solution indique les étapes principales et la succession de commandes.
 
 Créer d'abord le dossier d'inventaire :
 ```plain
-mkdir -p ~/inventory/hosts
+mkdir -p ~/ansible/inventory/hosts
 ```{{exec}}
 
 Création du fichier :
 ```plain
-touch ~/inventory/hosts/inventory.yml
+touch ~/ansible/inventory/inventory.yml
 ```{{exec}}
 
 Aller dans ce fichier depuis l'éditeur afin de créer ce fichier
