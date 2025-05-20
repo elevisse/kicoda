@@ -21,7 +21,7 @@ mkdir -p ~/ansible/inventory/hosts
 
 Création du fichier :
 ```plain
-touch ~/ansible/inventory/inventory.yml
+touch ~/ansible/inventory/hosts/inventory.yml
 ```{{exec}}
 
 Aller dans ce fichier depuis l'éditeur afin de créer ce fichier
