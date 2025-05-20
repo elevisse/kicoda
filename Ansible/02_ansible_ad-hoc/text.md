@@ -11,6 +11,12 @@ Actions à réaliser :
 
 <summary>Solution</summary>
 
+Activer virtual env
+```plain
+cd ansible
+source bin/activate
+```{{exec}}
+
 Cette commande sert à lister l'inventaire
 ```plain
 ansible all --list-hosts
@@ -39,4 +45,9 @@ ansible all[0:1] -m ping
 ```{{exec}}
 ```plain
 ansible all[1:] -m ansible.builtin.ping
+```{{exec}}
+
+Désactiver virtual env
+```plain
+deactivate
 ```{{exec}}
