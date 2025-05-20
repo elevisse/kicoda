@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt update -y
-apt install sshpass -y
+apt install sshpass python3.12-venv -y
 docker-compose -f /root/docker-compose.yml up -d
 sleep 10
 for n_node in {1..3}; do
@@ -9,4 +9,9 @@ for n_node in {1..3}; do
     ssh-keyscan node0$n_node >> ~/.ssh/known_hosts
     sshpass -p ubuntu ssh-copy-id root@node0$n_node
 done
+python3.12 -m venv ansible
+cd ansible
+source bin/activate
 pip install ansible
+deactivate
+cd ~

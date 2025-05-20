@@ -37,6 +37,12 @@ node03
 
 ```
 
+Activer le virtual env :
+```plain
+cd ansible
+source bin/activate
+```{{exec}}
+
 Ping de tous les hôtes :
 ```plain
 ansible all -m ansible.builtin.ping

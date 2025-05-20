@@ -58,5 +58,10 @@ Ping uniquement des machines back :
 ansible back -m ansible.builtin.ping -i inventory
 ```{{exec}}
 
+Désactiver le virtual env :
+```plain
+deactivate
+```{{exec}}
+
 </details>
 
