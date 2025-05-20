@@ -10,6 +10,12 @@ Actions à réaliser :
 
 <summary>Solution</summary>
 
+Activer le virtual env :
+```plain
+cd ~/ansible
+source bin/activate
+```{{exec}}
+
 Créer le playbook front.yml
 ```plain
 touch playbook/front.yml
