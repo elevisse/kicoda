@@ -15,7 +15,7 @@ Créer le playbook main.yml
 touch playbook/main.yml
 ```{{exec}}
 
-Utiliser l'éditeur pour créer le playbook qui permet d'appeler tous les autres'
+Utiliser l'éditeur pour créer le playbook qui permet d'appeler tous les autres
 ```plain
 ---
 
