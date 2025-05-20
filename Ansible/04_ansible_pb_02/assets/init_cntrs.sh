@@ -27,7 +27,4 @@ python3.12 -m venv ansible
 cd ansible
 source bin/activate
 pip install ansible
-deactivate
-cd ~
-mv playbook ansible/playbook
-cd ansible
+mv ../playbook .
