@@ -33,4 +33,8 @@ pip install ansible
 ansible --version
 ```{{exec}}
 
+```plain
+deactivate
+```{{exec}}
+
 </details>
