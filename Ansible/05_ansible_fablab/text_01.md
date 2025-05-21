@@ -15,6 +15,13 @@ Actions à réaliser :
 <summary>Solution</summary>
 
 ## Gestion inventaire
+
+Activer le virtual env :
+```plain
+cd ~/ansible
+source bin/activate
+```{{exec}}
+
 Créer le dossier d'inventaire
 ```plain
 mkdir -p inventory
