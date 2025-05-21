@@ -4,7 +4,10 @@ Action hors script :
 - créer le fichier mot de passe vault ~/.vault_pass_file avec le mot de passe sensible
 
 Actions à réaliser dans le script :
-- Supprimer le dossier kicoda s'il existe
+- Supprimer le dossier du virtualenv s'il existe
+- créer le dossier virtualenv
+- installer ansible
+- installer les collections ansible.posix et ommunity.docker
 - cloner le projet [elevisse/kicoda](https://github.com/elevisse/kicoda)
 - aller dans le repertoire Ansible/project
 - jouer le playbook présent dans project/Ansible/playbook avec l'inventaire de project/inventory avec le fichier de mot de passe vault
@@ -39,12 +42,21 @@ Utiliser l'éditeur pour construire le script:
 ```plain
 #!/bin/bash
 
-if [ -d "kicoda" ]; then
-    rm -Rf kicoda
+if [ -d "ansible" ]; then
+    rm -Rf ansible
 fi
+
+python3.12 -m venv ansible
+cd ansible
+source bin/activate
+pip install ansible
+ansible-galaxy collection install ansible.posix
+ansible-galaxy collection install community.docker
+
 git clone https://github.com/elevisse/kicoda
 cd kicoda/Ansible/project
 ansible-playbook playbook/main.yml -i inventory --vault-pass-file ~/.vault_pass_file
+deactivate
 cd
 
 ```

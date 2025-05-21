@@ -13,7 +13,7 @@
       mode: '0644'
   - name: creation folder lab
     ansible.builtin.file:
-      path: /root/kicoda/Ansible/project/playbook/fablab
+      path: /root/ansible/kicoda/Ansible/project/playbook/fablab
       state: directory
       owner: root
       group: root

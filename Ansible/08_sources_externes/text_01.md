@@ -13,7 +13,14 @@ Actions à réaliser :
 
 <summary>Solution</summary>
 
-## Actions 
+## Actions
+
+Activer le virtual env :
+```plain
+cd ~/ansible
+source bin/activate
+```{{exec}}
+
 Cloner le rojet
 ```
 git clone https://github.com/elevisse/kicoda
@@ -32,4 +39,10 @@ ansible-playbook playbook/main.yml -i inventory --ask-vault-pass
 tester les commandes ad-hoc :
 ```plain
 ansible all -m ansible.builtin.ping
+```{{exec}}
+
+Quitter le virtual env :
+```plain
+deactivate
+cd ..
 ```{{exec}}
