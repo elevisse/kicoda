@@ -44,5 +44,5 @@ ansible all -m ansible.builtin.ping
 Quitter le virtual env :
 ```plain
 deactivate
-cd ..
+cd ~
 ```{{exec}}

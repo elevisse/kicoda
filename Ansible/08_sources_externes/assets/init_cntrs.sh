@@ -22,5 +22,3 @@ source bin/activate
 pip install ansible
 ansible-galaxy collection install ansible.posix
 ansible-galaxy collection install community.docker
-mv ../playbook .
-mv ../inventory .
