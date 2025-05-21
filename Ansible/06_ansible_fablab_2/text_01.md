@@ -73,7 +73,7 @@ Modifier le fichier playbook/main.yml pour utiliser le template modifier l'utili
       mode: '0644'
   - name: creation folder lab
     ansible.builtin.file:
-      path: /root/playbook/fablab
+      path: /root/ansible/playbook/fablab
       state: directory
       owner: root
       group: root
