@@ -16,6 +16,11 @@ echo \
 apt update
 apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y -q -o DPkg::Options::=--force-confdef
 
+python3.12 -m venv ansible
+cd ansible
+source bin/activate
 pip install ansible
 ansible-galaxy collection install ansible.posix
 ansible-galaxy collection install community.docker
+mv ../playbook .
+mv ../inventory .

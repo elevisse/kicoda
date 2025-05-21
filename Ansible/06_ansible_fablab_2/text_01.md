@@ -17,6 +17,13 @@ Sources :
 <summary>Solution</summary>
 
 ## Gestion template
+
+Activer le virtual env :
+```plain
+cd ~/ansible
+source bin/activate
+```{{exec}}
+
 Créer le dossier template pour le playbook
 ```plain
 mkdir -p playbook/templates
