@@ -15,7 +15,8 @@ Sources :
 
 <summary>Solution</summary>
 
-## Chiffrement 
+## Chiffrement
+
 Chiffrer le fichier inventory/group_vars/all/vault.yml et utiliser le mot de passe sensible
 ```plain
 ansible-vault encrypt inventory/group_vars/all/vault.yml --ask-vault-pass

@@ -14,7 +14,14 @@ Sources :
 
 <summary>Solution</summary>
 
-## Regroupement 
+## Regroupement
+
+Activer le virtual env :
+```plain
+cd ~/ansible
+source bin/activate
+```{{exec}}
+
 supprimer la ligne suivante dans le fichier inventory/group_vars/nodes/all.yml et du fichier inventory/host_vars/localhost.yml
 ```
 root_password: ubuntu
