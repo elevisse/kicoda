@@ -12,7 +12,13 @@ Actions à réaliser :
 
 <summary>Solution</summary>
 
-## Actions 
+## Actions
+
+Activer le virtual env :
+```plain
+cd ~/ansible
+source bin/activate
+```{{exec}}
 
 Créer le dossier roles local
 ```plain
@@ -58,7 +64,7 @@ Editer pour y mettre les actions nécessaire
 
 - name: creation folder lab
   ansible.builtin.file:
-    path: /root/playbook/fablab
+    path: /root/ansible/playbook/fablab
     state: directory
     owner: root
     group: root
