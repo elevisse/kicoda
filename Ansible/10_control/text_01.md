@@ -12,7 +12,13 @@ Actions à réaliser :
 
 <summary>Solution</summary>
 
-## Actions 
+## Actions
+
+Activer le virtual env :
+```plain
+cd ~/ansible
+source bin/activate
+```{{exec}}
 
 Installer ansible-lint:
 ```plain

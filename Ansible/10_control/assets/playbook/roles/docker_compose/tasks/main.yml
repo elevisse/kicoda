@@ -11,7 +11,7 @@
 
 - name: creation folder lab
   ansible.builtin.file:
-    path: /root/playbook/fablab
+    path: /root/ansible/playbook/fablab
     state: directory
     owner: root
     group: root

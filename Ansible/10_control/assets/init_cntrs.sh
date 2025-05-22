@@ -1,13 +1,6 @@
 #!/bin/bash
 apt update -y
-apt install sshpass ca-certificates curl -y
-apt install python3.9 -y
-update-alternatives --install /usr/bin/python python /usr/bin/python3.9 1
-
-unlink /usr/bin/python
-ln -s /usr/bin/python3.9 /usr/bin/python
-unlink /usr/bin/python3
-ln -s /usr/bin/python3.9 /usr/bin/python3
+apt install ca-certificates curl sshpass python3.12-venv -y
 
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do apt remove $pkg -y; done
 install -m 0755 -d /etc/apt/keyrings
@@ -23,6 +16,11 @@ echo \
 apt update -y
 apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y -q -o DPkg::Options::=--force-confdef
 
+python3.12 -m venv ansible
+cd ansible
+source bin/activate
 pip install ansible cffi
 ansible-galaxy collection install ansible.posix --force
 ansible-galaxy collection install community.docker --force
+mv ../playbook .
+mv ../inventory .
