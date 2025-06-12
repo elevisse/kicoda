@@ -24,3 +24,4 @@ ansible-galaxy collection install ansible.posix
 ansible-galaxy collection install community.docker
 mv ../playbook .
 mv ../inventory .
+systemctl restart docker

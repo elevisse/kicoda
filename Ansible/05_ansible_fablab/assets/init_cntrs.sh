@@ -22,3 +22,4 @@ source bin/activate
 pip install ansible
 ansible-galaxy collection install ansible.posix
 ansible-galaxy collection install community.docker
+systemctl restart docker
