@@ -65,6 +65,7 @@ Utiliser l'éditeur pour créer le playbook qui permet de gérer le middle
       path: "{{ item.path }}"
       mode: "0755"
     with_items: "{{ sh_files.files }}"
+    notify: start tomcat with reboot
   - name: Creation lien symbolique
     ansible.builtin.file:
       src: /opt/tomcat/bin/startup.sh
@@ -76,7 +77,7 @@ Utiliser l'éditeur pour créer le playbook qui permet de gérer le middle
   handlers:
     - name: start tomcat with reboot
       ansible.builtin.command:
-        cmd: "docker-compose -f /root/docker-compose restart node03"
+        cmd: "docker-compose -f /root/docker-compose.yml restart node03"
       delegate_to: localhost
 
 ```
