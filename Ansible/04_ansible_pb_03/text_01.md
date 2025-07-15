@@ -67,10 +67,10 @@ Utiliser l'éditeur pour créer le playbook qui permet de gérer le middle
     with_items: "{{ sh_files.files }}"
   - name: Creation lien symbolique
     ansible.builtin.file:
-      src: /file/to/link/to
-      dest: /path/to/symlink
-      owner: foo
-      group: foo
+      src: /opt/tomcat/bin/startup.sh
+      dest: /root/start-tomcat.sh
+      owner: root
+      group: root
       state: link
   handlers:
     - name: start tomcat with reboot

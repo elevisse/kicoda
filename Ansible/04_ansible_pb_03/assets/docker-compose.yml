@@ -10,6 +10,7 @@ networks:
 volumes:
   opt:
   root:
+  usrlib:
 
 services:
   node01:
@@ -36,6 +37,7 @@ services:
     volumes:
       - opt:/opt
       - root:/root
+      - usrlib:/usr/lib
     restart: always
     command: >
       sh -ceux '
