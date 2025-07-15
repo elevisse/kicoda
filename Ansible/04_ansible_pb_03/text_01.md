@@ -5,7 +5,7 @@ Actions à réaliser :
 - se baser sur ce tuto : [https://jeevisoft.com/blogs/2025/01/how-to-install-apache-tomcat11version-11-0-2-on-ubuntu/](https://jeevisoft.com/blogs/2025/01/how-to-install-apache-tomcat11version-11-0-2-on-ubuntu/) uniquement du step 3 jusqu'au step 7
 - Attention au lien de l'archive : les versions évoluent
 - pour que tomcat se lance au démarrage, créer le lien symbolique /root/start-tomcat.sh pointant vers /opt/tomcat/bin/startup.sh via le module [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html](ansible file)
-- pour démarrer tomcat, forcer le reboot de la machine cette commande en local "docker-compose -f /root/docker-compose restart node03"
+- pour démarrer tomcat, forcer le reboot de la machine cette commande en local "docker-compose -f /root/docker-compose.yml restart node03"
 - utiliser le module [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/unarchive_module.html](ansible unarchive) télécharger et désarchiver directement le tar.gz tomcat depuis sa source internet
 
 <br>

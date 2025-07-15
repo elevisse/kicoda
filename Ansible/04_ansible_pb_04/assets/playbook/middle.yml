@@ -7,7 +7,7 @@
   - name: installer jdk
     ansible.builtin.package:
       name:
-      - openjdk-11-jdk
+      - openjdk-17-jdk
       - sudo
       state: latest
   - name: ajouter groupe tomcat
@@ -22,7 +22,7 @@
       groups: tomcat
   - name: decompression sources tomcat
     ansible.builtin.unarchive:
-      src: "https://downloads.apache.org/tomcat/tomcat-10/v10.1.41/bin/apache-tomcat-10.1.41.tar.gz"
+      src: "https://downloads.apache.org/tomcat/tomcat-11/v11.0.9/bin/apache-tomcat-11.0.9.tar.gz"
       dest: "/opt/tomcat/"
       remote_src: true
       extra_opts: [--strip-components=1]
@@ -36,19 +36,17 @@
       path: "{{ item.path }}"
       mode: "0755"
     with_items: "{{ sh_files.files }}"
-  - name: inserer le fichier demon
-    ansible.builtin.copy:
-      src: "files/tomcat.service"
-      dest: "/etc/systemd/system/tomcat.service"
-      mode: "0755"
-    notify: "start tomcat"
+    notify: start tomcat with reboot
+  - name: Creation lien symbolique
+    ansible.builtin.file:
+      src: /opt/tomcat/bin/startup.sh
+      dest: /root/start-tomcat.sh
+      owner: root
+      group: root
+      state: link
+    notify: start tomcat with reboot
   handlers:
-    - name: start tomcat
-      ansible.builtin.systemd:
-        name: tomcat
-        daemon_reload: true
-        enabled: true
-        state: restarted
-        force: true
-      become: yes
-      ignore_errors: yes
+    - name: start tomcat with reboot
+      ansible.builtin.command:
+        cmd: "docker-compose -f /root/docker-compose.yml restart node03"
+      delegate_to: localhost
