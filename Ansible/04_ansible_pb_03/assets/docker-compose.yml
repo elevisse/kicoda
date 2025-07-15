@@ -37,7 +37,11 @@ services:
       - opt:/opt
       - root:/root
     restart: always
-    command: ["run-parts", "/root/", "&&", "/usr/sbin/sshd", "-D", "-e"]
+    command: |
+      '
+      run-parts /root/
+      /usr/sbin/sshd -D -e
+      '
   node04:
     environment:
       - ROOT_PASSWORD=ubuntu
