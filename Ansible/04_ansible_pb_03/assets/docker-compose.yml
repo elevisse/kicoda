@@ -7,6 +7,10 @@ networks:
       config:
         - subnet: 10.1.0.0/16
 
+volumes:
+  opt:
+  root:
+
 services:
   node01:
     environment:
@@ -29,7 +33,11 @@ services:
     networks:
       sshnet:
         ipv4_address: 10.1.1.3
+    volumes:
+      - opt:/opt
+      - root:/root
     restart: always
+    command: ["run-parts", "/root/", "&&", "/usr/sbin/sshd", "-D", "-e"]
   node04:
     environment:
       - ROOT_PASSWORD=ubuntu
