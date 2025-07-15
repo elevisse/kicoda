@@ -38,6 +38,9 @@ services:
       - opt:/opt
       - root:/root
       - usrlib:/usr/lib
+    ports:
+      - 22:22
+      - 8080:8080
     restart: always
     command: >
       sh -ceux '
