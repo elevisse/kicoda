@@ -72,6 +72,7 @@ Utiliser l'éditeur pour créer le playbook qui permet de gérer le middle
       owner: root
       group: root
       state: link
+    notify: start tomcat with reboot
   handlers:
     - name: start tomcat with reboot
       ansible.builtin.reboot:
