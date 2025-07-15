@@ -37,9 +37,9 @@ services:
       - opt:/opt
       - root:/root
     restart: always
-    command: |
-      '
-      run-parts /root/
+    command: >
+      sh -ceux '
+      find /root/ -prune -type f -executable -exec "{}" \; &&
       /usr/sbin/sshd -D -e
       '
   node04:
